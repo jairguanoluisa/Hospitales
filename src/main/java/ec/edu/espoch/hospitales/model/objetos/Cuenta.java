@@ -1,16 +1,18 @@
 package ec.edu.espoch.hospitales.model.objetos;
 
 public class Cuenta {
-    protected float saldo;
-    protected int consignaciones = 0;
-    protected int retiros = 0;
-    protected float tasaAnual;
-    protected float comisionMensual = 0;
+    private int id;
+    private float saldo;
+    private int consignaciones = 0;
+    private int retiros = 0;
+    private float tasaAnual;
+    private float comisionMensual = 0;
     
     //CONSTRUCTORES
     public Cuenta(float saldo, float tasaAnual) {
         this.saldo = saldo;
         this.tasaAnual = tasaAnual;
+        this.id=this.id+1;
     }
 
     public float getSaldo() {
