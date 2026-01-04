@@ -1,16 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 
 package ec.edu.espoch.hospitales;
 
-/**
- *
- * @author USUARIO
- */
+import ec.edu.espoch.hospitales.controller.CuentaController;
+import ec.edu.espoch.hospitales.model.objetos.Cuenta; //no usada por el momento
+
 public class Hospitales {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        CuentaController controlador = new CuentaController();
+        controlador.cuentaAhorrosController();
     }
 }

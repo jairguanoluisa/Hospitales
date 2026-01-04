@@ -11,14 +11,6 @@ public class Cuentas {
         return true; //retorna el nuevo valor del saldo
     }
 
-    public Cuenta buscar(int id){
-        
-    }
-    
-    public boolean agregar(){
-        return Cuenta;
-    }
-
     public boolean retirar(float cantidad) {
         return false;
     }

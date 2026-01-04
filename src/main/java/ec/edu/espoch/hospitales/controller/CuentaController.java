@@ -1,7 +1,9 @@
 package ec.edu.espoch.hospitales.controller;
 
+import ec.edu.espoch.hospitales.model.implementacion.CuentasAhorros;
 import ec.edu.espoch.hospitales.model.interfaces.iCuentaAhorros;
 import ec.edu.espoch.hospitales.model.objetos.CuentaAhorros;
+import ec.edu.espoch.hospitales.view.PantallaCuentaAhorros;
 
 /**
  * conectarse con el controlador (homogenea)
@@ -9,9 +11,11 @@ import ec.edu.espoch.hospitales.model.objetos.CuentaAhorros;
  */
 public class CuentaController {
     private iCuentaAhorros cuentaAhorros; //esta variable voy a utilizar para conectarme
+    private PantallaCuentaAhorros pantallaCuentaAhorros;
 
-    public CuentaController(iCuentaAhorros cuentaAhorros) {
-        this.cuentaAhorros = cuentaAhorros;
+    public CuentaController() {
+        this.cuentaAhorros = new CuentasAhorros();
+        this.pantallaCuentaAhorros = new PantallaCuentaAhorros(); //llamar y crear objeto
     }
     
     
@@ -20,15 +24,15 @@ public class CuentaController {
         try {
         //CREAR UN OBJETO DE TIPO CUENTA PARA CONSIGNAR
         CuentaAhorros cuenta = new CuentaAhorros(10,5);
+        
         //valores que van como parámetros
-        float valor=10.0F;
-        int id=1;
+        float valor = Float.parseFloat(pantallaCuentaAhorros.getValor());
+        int id = Integer.parseInt(pantallaCuentaAhorros.getId());
         cuenta.setId(id);//embebido
         boolean respCuenta= cuentaAhorros.consignar(valor,cuenta);
-        System.out.println("El resultado de la transacció es: " + respCuenta);
-        System.out.println("El saldo actual es: " + cuenta.getSaldo());
+        pantallaCuentaAhorros.resultado(cuenta.getSaldo());
         }catch(Exception e){
-            pantalla.error();
+            pantallaCuentaAhorros.error();
         }
     }
 }
